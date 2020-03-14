@@ -10,22 +10,21 @@ const orm = {
     },
 
     insertOne(table, cols, vals, cb){
-        let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (??)`;
+        let queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES (?,?)`;
 
         connection.query(queryString, vals, (err, result) => {
             if (err) throw err;
-            cb(results);
+            cb(result);
         })
     },
 
     updateOne(table, objColVals,condition, cb){
-        let key = objColVals;
-        let queryString = `UPDATE ${table} SET ${objColVals} WHERE ${condition}`;
-        console.log(key);
-        // connection.query(queryString, (err, result) => {
-        //     if (err) throw err;
-        //     cb(results);
-        // });
+        let queryString = `UPDATE ${table} SET devoured=${objColVals.devoured} WHERE ${condition}`;
+        console.log(objColVals.devoured)
+        connection.query(queryString, (err, result) => {
+            if (err) throw err;
+            cb(result);
+        });
     }
 }
 
