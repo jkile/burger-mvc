@@ -1,4 +1,4 @@
-const connection = ("./connection");
+const connection = require("./connection");
 
 const orm = {
     selectAll(tableInput, cb){
