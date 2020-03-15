@@ -1,32 +1,49 @@
-<h1>Eat That Burg!</h1>
+<div class="container">
+    <div class="columns">
+        <div class="column level">
+            <h1 class="level-item title has-text-white">Eat That Burg!</h1>
+        </div>
+    </div>
+    <div class="columns">
 
-<h2>Burgs Not Yet Eaten</h2>
-<ul>
-    {{#each burgers}}
-        {{#unless devoured}}
-           {{> burger-block devoured=true}}
-        {{/unless}}
-    {{/each}}
-</ul>
+        <div class="column">
+            <div class="box">
+                <h2 class="subtitle is-4 has-text-centered">Burgs Not Yet Eaten</h2>
+                <ul>
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                    {{> burger-block devoured=true}}
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box">
+                <h2 class="subtitle is-4 has-text-centered">Burgs That Have Been Eaten</h2>
 
+                <ul>
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    {{> burger-block devoured=false}}
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column level">
+            <h2 class="level-item subtitle is-4 has-text-white">More Burgs?</h2>
+            <form class="create-form level-item">
 
-<h2>Burgs That Have Been Eaten</h2>
+                <div class="form-group">
+                    <label for="name" class="has-text-white">Burg Name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
 
-<ul>
-    {{#each burgers}}
-        {{#if devoured}}
-            {{> burger-block devoured=false}}
-        {{/if}}
-    {{/each}}
-</ul>
-
-<h2>More Burgs?</h2>
-<form class="create-form">
-
-    <div class="form-group">
-        <label for="name">Burg Name:</label>
-        <input type="text" id="name" name="name">
-    </div> 
-
-    <button type="submit">Add Burg</button>
-</form>
+                <button type="submit">Add Burg</button>
+            </form>
+        </div>
+    </div>
+</div>
